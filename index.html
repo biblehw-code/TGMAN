@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科技養生 ｜ 神氣家族好眠指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap');
+
+        :root {
+            --primary-cyan: #00f3ff;
+            --primary-green: #00ff66;
+            --dark-bg: #050a15;
+            --panel-bg: rgba(10, 20, 40, 0.7);
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--dark-bg);
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 243, 255, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 255, 102, 0.08), transparent 25%);
+            color: #e0e0e0;
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1, .tech-font {
+            font-family: 'Orbitron', 'Noto Sans TC', sans-serif;
+        }
+
+        .glass-panel {
+            background: var(--panel-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+        }
+
+        .neon-text-cyan {
+            color: var(--primary-cyan);
+            text-shadow: 0 0 5px rgba(0,243,255,0.5), 0 0 10px rgba(0,243,255,0.3);
+        }
+
+        .neon-border {
+            box-shadow: 0 0 10px rgba(0,243,255,0.2), inset 0 0 10px rgba(0,243,255,0.1);
+        }
+
+        .menu-btn {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .menu-btn:hover {
+            background: rgba(0, 243, 255, 0.1);
+            border-left: 4px solid var(--primary-cyan);
+            transform: translateX(5px);
+        }
+
+        .menu-btn.active {
+            background: linear-gradient(90deg, rgba(0,243,255,0.2) 0%, transparent 100%);
+            border-left: 4px solid var(--primary-green);
+            box-shadow: inset 20px 0 20px -20px var(--primary-green);
+        }
+
+        .menu-btn.active .btn-title {
+            color: var(--primary-green);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 243, 255, 0.3);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-cyan);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Grid background pattern */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 flex flex-col items-center">
+
+    <div class="grid-bg"></div>
+
+    <header class="w-full max-w-6xl mb-8 flex flex-col md:flex-row justify-between items-center glass-panel p-6">
+        <div class="flex items-center gap-4 mb-4 md:mb-0">
+            <div class="w-12 h-12 rounded-full border-2 border-[var(--primary-cyan)] flex items-center justify-center neon-border">
+                <i class="fas fa-fingerprint text-[var(--primary-cyan)] text-2xl"></i>
+            </div>
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold tech-font tracking-wider text-white">
+                    神氣家族 <span class="neon-text-cyan">|</span> 科技養生
+                </h1>
+                <p class="text-[var(--primary-cyan)] text-sm tracking-widest mt-1 opacity-80">CYBER-WELLNESS: INSOMNIA PROTOCOL</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-3 bg-black/40 px-4 py-2 rounded-full border border-[var(--primary-cyan)]/30">
+            <i class="fas fa-heartbeat text-[var(--primary-green)] animate-pulse"></i>
+            <span class="text-sm text-gray-300">系統狀態: <span class="text-[var(--primary-green)]">身心平衡啟動中</span></span>
+        </div>
+    </header>
+
+    <main class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- 左側：影片播放區 -->
+        <section class="lg:col-span-2 flex flex-col gap-4">
+            <div class="glass-panel p-2 neon-border">
+                <div class="video-container border border-[var(--primary-cyan)]/20 shadow-[0_0_15px_rgba(0,243,255,0.2)]">
+                    <!-- YouTube 播放器容器 -->
+                    <div id="player-wrapper" class="absolute top-0 left-0 w-full h-full">
+                        <div id="main-player"></div>
+                    </div>
+                    <!-- 錯誤攔截自訂畫面 -->
+                    <div id="error-overlay" class="hidden absolute top-0 left-0 w-full h-full bg-black/90 flex flex-col items-center justify-center z-10 backdrop-blur-sm">
+                        <i class="fas fa-lock text-[var(--primary-cyan)] text-4xl mb-4 neon-text-cyan"></i>
+                        <h3 class="text-white text-xl font-bold mb-2 tracking-wider">影片隱私設定限制嵌入</h3>
+                        <p class="text-gray-400 text-sm mb-6">這部影片需要直接在 YouTube 平台上觀看</p>
+                        <a id="external-link" href="#" target="_blank" class="px-6 py-2 bg-[var(--primary-cyan)]/10 border border-[var(--primary-cyan)] text-[var(--primary-cyan)] rounded-full hover:bg-[var(--primary-cyan)] hover:text-[#050a15] transition-all font-bold tracking-widest flex items-center shadow-[0_0_10px_rgba(0,243,255,0.2)]">
+                            <i class="fab fa-youtube text-xl mr-2"></i> 前往 YouTube 觀看
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 目前播放資訊 -->
+            <div class="glass-panel p-6 mt-2 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-[var(--primary-cyan)]/5 rounded-full blur-3xl"></div>
+                <div class="text-[var(--primary-cyan)] text-xs tech-font mb-2 tracking-widest"><i class="fas fa-play-circle mr-2"></i>NOW PLAYING</div>
+                <h2 id="current-title" class="text-2xl font-bold text-white mb-3">載入中...</h2>
+                <p id="current-desc" class="text-gray-400 text-sm leading-relaxed">
+                    請從右側選單選擇一個主題進行觀看。
+                </p>
+            </div>
+        </section>
+
+        <!-- 右側：播放清單區 -->
+        <aside class="glass-panel p-4 flex flex-col h-[600px] lg:h-auto">
+            <div class="flex items-center justify-between mb-4 px-2 border-b border-[var(--primary-cyan)]/20 pb-3">
+                <h3 class="text-lg font-bold tech-font text-white"><i class="fas fa-list-ul mr-2 text-[var(--primary-cyan)]"></i> 好眠資料庫</h3>
+                <span class="text-xs bg-[var(--primary-cyan)]/20 text-[var(--primary-cyan)] px-2 py-1 rounded">4 MODULES</span>
+            </div>
+            
+            <!-- 選單列表容器 -->
+            <div id="playlist-container" class="flex-1 overflow-y-auto pr-2 space-y-3">
+                <!-- 按鈕將由 JS 動態生成 -->
+            </div>
+        </aside>
+
+    </main>
+
+    <script>
+        // 神氣家族 - 失眠相關影片庫
+        const videoDatabase = [
+            { 
+                id: "HIm26uP40Js", 
+                title: "自律神經不失調", 
+                channel: "神氣家族線上分享", 
+                desc: "現代人生活節奏快、壓力大，容易導致自律神經失調與失眠。透過神氣家族師兄姊的分享，了解如何運用氣功與轉念，平衡身心，找回自然好睡眠。",
+                duration: "04:48"
+            },
+            { 
+                id: "bs1aqz9d5og", 
+                title: "20年沒變的不是真愛，是睡眠障礙", 
+                channel: "空中講堂", 
+                desc: "長達20年的失眠困擾該如何解？聽聽過來人的養生智慧分享。放下心中的執著與壓力，透過修練氣功，讓身體細胞重新獲得放鬆與修復的力量。",
+                duration: "15:01"
+            },
+            { 
+                id: "orekGurP7sg", 
+                title: "睡不著！5分鐘讓您入睡", 
+                channel: "空中桃花園", 
+                desc: "簡單實用的睡前放鬆秘訣！結合呼吸與心念的調整，幫助您卸下一整天的疲憊，快速安定心神，5分鐘內安然進入夢鄉。",
+                duration: "08:57"
+            },
+            { 
+                id: "6skIcchYozg", 
+                title: "改變命運 Yes I can!", 
+                channel: "良心開港", 
+                desc: "身心靈的全面放鬆，從改變心態開始。揮別焦慮與失眠，學習正向思考的能量，不僅改善睡眠品質，更為自己的人生開創全新格局。",
+                duration: "18:12"
+            }
+        ];
+
+        // DOM 元素
+        const playlistContainer = document.getElementById('playlist-container');
+        const currentTitle = document.getElementById('current-title');
+        const currentDesc = document.getElementById('current-desc');
+        const errorOverlay = document.getElementById('error-overlay');
+        const externalLink = document.getElementById('external-link');
+        const playerWrapper = document.getElementById('player-wrapper');
+
+        let ytPlayer;
+        let isPlayerReady = false;
+        let currentVideoIndex = 0;
+
+        // 1. 載入 YouTube IFrame API
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // 2. YouTube API 準備就緒時自動呼叫
+        window.onYouTubeIframeAPIReady = function() {
+            ytPlayer = new YT.Player('main-player', {
+                height: '100%',
+                width: '100%',
+                videoId: videoDatabase[0].id,
+                playerVars: {
+                    'autoplay': 1,
+                    'rel': 0,
+                    'modestbranding': 1
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onError': onPlayerError
+                }
+            });
+        };
+
+        function onPlayerReady(event) {
+            isPlayerReady = true;
+            // 如果在載入完成前有切換過影片，則播放最新的
+            if (currentVideoIndex !== 0) {
+                ytPlayer.loadVideoById(videoDatabase[currentVideoIndex].id);
+            }
+        }
+
+        function onPlayerError(event) {
+            // 偵測到錯誤 (包含 153/150 嵌入受限等)
+            playerWrapper.classList.add('hidden'); // 隱藏原本的 YouTube 錯誤畫面
+            errorOverlay.classList.remove('hidden'); // 顯示自訂的科技風提示畫面
+            
+            // 更新前往 YouTube 的連結
+            const videoId = videoDatabase[currentVideoIndex].id;
+            externalLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+        }
+
+        // 初始化播放清單
+        function initPlaylist() {
+            videoDatabase.forEach((video, index) => {
+                const btn = document.createElement('button');
+                btn.className = `menu-btn w-full text-left p-4 rounded-lg bg-black/30 border border-white/5 cursor-pointer flex flex-col gap-2 group relative overflow-hidden`;
+                
+                // 按鈕內部結構
+                btn.innerHTML = `
+                    <div class="flex justify-between items-start w-full">
+                        <span class="text-[10px] tech-font text-[var(--primary-cyan)] bg-[var(--primary-cyan)]/10 px-2 py-0.5 rounded border border-[var(--primary-cyan)]/30">${video.channel}</span>
+                        <span class="text-xs text-gray-500 font-mono"><i class="far fa-clock mr-1"></i>${video.duration}</span>
+                    </div>
+                    <h4 class="btn-title text-base font-bold text-gray-200 mt-1 transition-colors">${video.title}</h4>
+                    <p class="text-xs text-gray-400 line-clamp-2 mt-1">${video.desc}</p>
+                    
+                    <!-- 裝飾用光條 -->
+                    <div class="absolute bottom-0 left-0 h-[2px] w-0 bg-[var(--primary-cyan)] transition-all duration-300 group-hover:w-full"></div>
+                `;
+
+                // 點擊事件
+                btn.onclick = () => loadVideo(index, btn);
+                
+                playlistContainer.appendChild(btn);
+            });
+
+            // 預設選取第一部影片
+            const firstBtn = document.querySelector('.menu-btn');
+            if(firstBtn) {
+                updateUI(0, firstBtn);
+            }
+        }
+
+        // 載入影片
+        function loadVideo(index, selectedBtn) {
+            currentVideoIndex = index;
+            const video = videoDatabase[index];
+            
+            // 每次切換影片都先重置畫面狀態，顯示播放器，隱藏錯誤
+            errorOverlay.classList.add('hidden');
+            playerWrapper.classList.remove('hidden');
+
+            if (isPlayerReady) {
+                ytPlayer.loadVideoById(video.id);
+            }
+
+            updateUI(index, selectedBtn);
+        }
+
+        // 獨立出更新 UI 的邏輯
+        function updateUI(index, selectedBtn) {
+            const video = videoDatabase[index];
+            
+            // 更新文字資訊
+            currentTitle.textContent = video.title;
+            currentDesc.textContent = video.desc;
+
+            // 更新按鈕狀態
+            const allBtns = document.querySelectorAll('.menu-btn');
+            allBtns.forEach(btn => btn.classList.remove('active'));
+            if (selectedBtn) selectedBtn.classList.add('active');
+            
+            // 視窗滾動到頂部 (主要針對手機版)
+            if(window.innerWidth < 1024) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // 執行初始化
+        window.addEventListener('DOMContentLoaded', initPlaylist);
+
+    </script>
+</body>
+</html>
